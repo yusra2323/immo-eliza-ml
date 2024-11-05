@@ -1,6 +1,9 @@
-# immo-eliza-ml
+# immo-eliza-ml 🏠
+
+
 # ImmoWeb Real Estate machine learning
 
+![Immo House Predictions](.\immo-eliza-ml\house.jpg)
 
 
 ## Project Overview
@@ -52,6 +55,13 @@ To run this project, you’ll need:
 	•	Required packages in requirements.txt
 
 ## Libraries:
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Numpy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
 	•	pandas: Data manipulation
 
 	•	scikit-learn: Machine learning
@@ -166,32 +176,6 @@ This is a basic framework. To improve results, you can experiment with feature e
 
 
 
-# The Decision Tree Regressor 
-is a type of supervised learning algorithm used for regression tasks, meaning it predicts continuous values (as opposed to classification tasks where the output is categorical). It belongs to the family of decision tree algorithms and operates by splitting the data into subsets based on certain conditions, creating a tree-like structure.
-
-# How it Works
-The algorithm recursively partitions the dataset by choosing the most significant feature at each step, aiming to reduce the prediction error. Each split is chosen to minimize a particular metric (like mean squared error or mean absolute error), making the model progressively better at predicting the target variable. The final result is a model that resembles a tree structure, where:
-
-Nodes represent features of the data,
-Branches represent decisions or conditions, and
-Leaves represent the final predicted value.
-
-# When we use Decision Tree Regression
-
-Decision Tree Regression is useful when you want to make continuous predictions (e.g., predicting a price or a measurement) and the underlying data may have complex, non-linear relationships. Here’s when it’s particularly beneficial:
-1.	Handling Non-linear Data: Decision trees can capture non-linear relationships in data, making them a good choice when linear models (like linear regression) are insufficient. They split the data into regions based on different conditions, creating a piecewise function that can model complex patterns.
-2.	Feature Interaction: Decision trees can automatically capture interactions between features, as they split based on feature thresholds that best fit the target variable. This means they don’t require you to specify interactions in advance.
-3.	Minimal Preprocessing: Decision trees don’t require feature scaling, such as normalization or standardization, and they handle categorical data well (though categorical features may need to be preprocessed in specific libraries like scikit-learn).
-4.	Interpretable Models: A decision tree model is relatively easy to interpret visually by examining the splits and decision nodes, which can help understand which features are important and how they influence predictions.
-Examples of Uses
-•	Real Estate Pricing: Estimating property prices based on complex feature interactions, like location, size, and amenities.
-•	Healthcare: Predicting patient outcomes based on age, medical history, and other features where interactions matter.
-•	Manufacturing: Estimating production yield or defect rates based on conditions in different stages of the production process.
-
-
-# XGBoost (Extreme Gradient Boosting) is a powerful machine learning algorithm optimized for speed and performance, commonly used for structured/tabular data. Here’s a guide on how to use XGBoost in Python.
-
-
 ## 1. Linear Regression
 Strengths: Linear regression is simple, interpretable, and computationally efficient. It works well with linear relationships and provides coefficients that indicate the influence of each feature on the price.
 Weaknesses: Linear regression assumes a linear relationship between features and the target variable, which may not capture the complexity of real estate prices well. It's also sensitive to outliers, which can distort predictions.
@@ -204,7 +188,8 @@ Best Use Case: Decision trees are useful when the data is somewhat complex but n
 Strengths: XGBoost is a powerful, flexible ensemble method that combines many decision trees to make predictions. It is known for its high accuracy and ability to handle non-linear relationships. XGBoost also provides regularization options to prevent overfitting, making it robust on large and complex datasets.
 
 Weaknesses: XGBoost is computationally intensive and may take longer to train compared to simpler models. Tuning hyperparameters can also be complex, as it has many configuration options.
-## Best Use Case: XGBoost is particularly effective when you have a large, complex dataset with non-linear relationships, as is often the case in real estate. It’s also a good choice if you are aiming for high accuracy and are willing to trade off interpretability.
+
+ Best Use Case: XGBoost is particularly effective when you have a large, complex dataset with non-linear relationships, as is often the case in real estate. It’s also a good choice if you are aiming for high accuracy and are willing to trade off interpretability.
 
 Model Comparison Using Evaluation Metrics
 To decide which model is best, you should compare them using metrics like Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE) on both the training and test sets. Here’s what to look for:
@@ -213,7 +198,7 @@ Lower RMSE or MAE: This indicates more accurate predictions.
 Generalization (Train vs. Test Performance): Check that the model performs consistently across train and test sets to avoid overfitting.
 General Recommendation:
 
-### XGBoost is likely to perform best given its robustness with non-linear relationships, complex interactions, and ability to manage large datasets.
+## XGBoost is likely to perform best given its robustness with non-linear relationships, complex interactions, and ability to manage large datasets.
 Decision Tree could work if interpretability is a priority and if you're dealing with fewer data points, but it may overfit.
 Linear Regression may perform well only if the relationships are primarily linear; however, in most real estate data, non-linear models (like XGBoost) tend to perform better due to the complex factors influencing prices.
 
@@ -223,13 +208,13 @@ If high accuracy and model performance are top priorities, XGBoost is likely the
 
 # The conclusion the best score for the model was in XG boost 
 
-# Score for linear Regression Train Score is 50.8
-# Score for linear Regression Test Score is 50.5
+Score for linear Regression Train Score is 50.8
+Score for linear Regression Test Score is 50.5
 
-# Score for Decision Train Score  is 97.9
-# Score for Decision Test Score  is 92.8
+Score for Decision Train Score  is 97.9
+Score for Decision Test Score  is 92.8
 
 
-# Score for XGboost Train Score is 98.7
-# Score for XGboost Test Score  is 94.9
+Score for XGboost Train Score is 98.7
+Score for XGboost Test Score  is 94.9
 
