@@ -1,11 +1,12 @@
-
+# Import necessary libraries
 import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 import numpy as np
-
+import joblib
+import pickle
 
 # Function to load and inspect data
 def load_and_inspect_data(file_path):
@@ -61,7 +62,18 @@ def evaluate_model(model, X_train, y_train, X_test, y_test):
     
     return mse, rmse
 
+# Function to make predictions with a given model
+def make_predictions(model, X_test):
+    y_pred = model.predict(X_test)
+    return y_pred
 
+# Function to evaluate the predictions
+def evaluate_predictions(y_test, y_pred):
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    print("Mean Squared Error:", mse)
+    print("Root Mean Squared Error:", rmse)
+    return mse, rmse
 
 # Function to perform hyperparameter tuning using GridSearchCV
 def hyperparameter_tuning(X_train, y_train):
@@ -78,8 +90,6 @@ def hyperparameter_tuning(X_train, y_train):
     )
     grid_search.fit(X_train, y_train)
     return grid_search.best_estimator_
-
-
 
 # Main function to run the entire pipeline
 def main():
@@ -98,23 +108,21 @@ def main():
     # Evaluate the model
     mse, rmse = evaluate_model(model, X_train, y_train, X_test, y_test)
     
+    # Make and evaluate predictions
+    y_pred = make_predictions(model, X_test)
+    mse, rmse = evaluate_predictions(y_test, y_pred)
+    
     # Perform hyperparameter tuning
     best_model = hyperparameter_tuning(X_train, y_train)
     
     # Evaluate the best model
-    y_pred_best = best_model.predict(X_test)
-    mse_best = mean_squared_error(y_test, y_pred_best)
-    rmse_best = np.sqrt(mse_best)
+    y_pred_best = make_predictions(best_model, X_test)
+    mse_best, rmse_best = evaluate_predictions(y_test, y_pred_best)
     
     print("Best Model Mean Squared Error:", mse_best)
     print("Best Model Root Mean Squared Error:", rmse_best)
 
 
-
-
 # Run the main function
 if __name__ == "__main__":
     main()
-
-
-
